@@ -14,11 +14,11 @@ describe('Flash', function () {
     }))
     app.use(flash())
 
-    app.use(function (req, res) {
+    app.use(function (req, response) {
       assert(Array.isArray(res.locals.flash))
       assert(Array.isArray(req.session.flash))
-      assert.equal(res.locals.flash, req.session.flash)
-      res.end()
+      assert.equal(response.locals.flash, response.session.flash)
+      response.end()
     })
 
     request(app.listen())
