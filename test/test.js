@@ -15,7 +15,7 @@ describe('Flash', function () {
     app.use(flash())
 
     app.use(function (req, response) {
-      assert(Array.isArray(res.locals.flash))
+      assert(Array.isArray(response.locals.flash))
       assert(Array.isArray(req.session.flash))
       assert.equal(response.locals.flash, response.session.flash)
       response.end()
